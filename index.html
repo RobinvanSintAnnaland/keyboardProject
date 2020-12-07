@@ -1,0 +1,45 @@
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.58/Tone.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript">
+
+
+      $(function(){
+        //wanneer key is gedrukt
+        $('.key').click(function(e){
+          var key = $(this);
+          const note = $(this).attr("data-note");
+          const synth = new Tone.Synth().toDestination();
+          synth.triggerAttackRelease(note+"4", "8n");
+          $(this).addClass("active");
+
+          setTimeout(function(){
+            key.removeClass('active');
+          }, 200);
+        });
+        });
+    </script>
+</head>
+
+<body>
+  <div class="piano">
+    <div data-note="C"  class="key white"></div>
+    <div data-note="Db" class="key black"></div>
+    <div data-note="D"  class="key white"></div>
+    <div data-note="Eb" class="key black"></div>
+    <div data-note="E"  class="key white"></div>
+    <div data-note="F"  class="key white"></div>
+    <div data-note="Gb" class="key black"></div>
+    <div data-note="G"  class="key white"></div>
+    <div data-note="Ab" class="key black"></div>
+    <div data-note="A"  class="key white"></div>
+    <div data-note="Bb" class="key black"></div>
+    <div data-note="B"  class="key white"></div>
+  </div>
+
+</script>
+  <audio id="C" src="notes">
+</body>
